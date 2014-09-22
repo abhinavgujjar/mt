@@ -1,40 +1,33 @@
 <html ng-app>
 <head>
 	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<style type="text/css">
+		.higlight {
+			color : red;
+			background-color: yellow;
+		}
+	</style>
 </head>
 
-<body ng-controller="mainController">
-	<h1 >{{message + ', ' +  companyName}}</h1>
-	<h2>{{7+5}}</h2>
-	<div ng-controller="subController" style="color:blue">
-		<h1>{{message}}</h1>
+<body >
+	<div ng-controller="greetingController">
+
+		<h1 ng-show="showMessage">{{message + ', ' +  companyName}}</h1>
+		<input type="text" ng-model="message" />
+		<input type="checkbox" ng-model="showMessage" />
+		Show Message
 	</div>
-	<div ng-controller="subController2" style="color:red">
-		<h1>{{message}}</h1>
+	<br/>
+	<div ng-controller="hotelsController">
+		<div ng-repeat="hotel in hotels" ng-class="{higlight : hotel.price > 20000}">
+			<h1>{{hotel.name}}, {{hotel.location}}</h1>
+			<h2></h2>
+			<br/>
+			<div >The price for the hotel is <span><input type="number" ng-model="hotel.price"/></span></div>
+		</div>
+
 	</div>
 
-	<h1>{{message}}</h1>
 </body>
-	<script type="text/javascript">
-	function mainController($scope){
-
-		var greetings = ['Morning', 'Afternon', 'Evening'];
-
-		$scope.message = "Good " + greetings[0];
-
-		$scope.companyName = "MindTree";
-
-	}
-
-	function subController($scope)
-	{
-		$scope.message = "Hi There";
-	}
-
-	function subController2($scope)
-	{
-		
-	}
-</script>
-
 </html>
