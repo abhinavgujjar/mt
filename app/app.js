@@ -1,4 +1,5 @@
-function greetingController($scope, $timeout) {
+angular.module('holiday', ['hotels'])
+.controller('greetingController', function($scope, $timeout) {
 
 	var greetings = ['Morning', 'Afternon', 'Evening'];
 
@@ -12,9 +13,29 @@ function greetingController($scope, $timeout) {
 		$scope.message = "Lunch Time!!!!"
 	}, 3000);
 
-}
+})
 
-function hotelsController($scope) {
+
+angular.module('hotels', [])
+.controller('hotelsController', function($scope) {
+
+	$scope.upVote = function(ht) {
+
+		if (!ht.rating) {
+			ht.rating = 0;
+		}
+
+		ht.rating++;
+	}
+
+	$scope.downVote = function(ht) {
+
+		if (!ht.rating) {
+			ht.rating = 0;
+		}
+
+		ht.rating--;
+	}
 
 	$scope.AddHotel = function(h) {
 		$scope.hotels.push({
@@ -30,7 +51,7 @@ function hotelsController($scope) {
 
 	$scope.hotels = [{
 		"id": "1",
-		"name": "Taj Westend",
+		"name": "Taj Eastend",
 		"price": 17000,
 		"location": "Race Course Road",
 		"imgUrl": "kVIGWsz.jpg",
@@ -67,4 +88,4 @@ function hotelsController($scope) {
 		"area": 198000
 	}];
 
-}
+});
