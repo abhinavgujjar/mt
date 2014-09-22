@@ -20,7 +20,8 @@ function hotelsController($scope) {
 	$scope.hotels = [{
 			name: 'Taj Vivanta',
 			location: 'Yeshwantpur',
-			price: 7000
+			price: 7000,
+			img : 'FS46AwM.jpg'
 		},{
 			name: 'Leela Palace',
 			location: 'Old Airport Road',

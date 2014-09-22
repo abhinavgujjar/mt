@@ -5,8 +5,12 @@
 	<style type="text/css">
 		.higlight {
 			color : red;
-			background-color: yellow;
 		}
+
+		.odd {
+			background-color: grey;
+		}
+
 	</style>
 </head>
 
@@ -19,12 +23,12 @@
 		Show Message
 	</div>
 	<br/>
-	<div ng-controller="hotelsController">
-		<div ng-repeat="hotel in hotels" ng-class="{higlight : hotel.price > 20000}">
-			<h1>{{hotel.name}}, {{hotel.location}}</h1>
-			<h2></h2>
+	<div  ng-controller="hotelsController">
+		<div ng-repeat="hotel in hotels" ng-class="{higlight : hotel.price > 20000}" ng-class-odd="'odd'">
+			<h1 >{{hotel.name}}, {{hotel.location}}</h1>
+			<img ng-src="http://i.imgur.com/{{hotel.img}}" width="100px" />
 			<br/>
-			<div >The price for the hotel is <span><input type="number" ng-model="hotel.price"/></span></div>
+			<div >The price for the hotel is <span><input ng-disabled="hotel.price < 10000" type="number" ng-model="hotel.price"/></span></div>
 		</div>
 
 	</div>
