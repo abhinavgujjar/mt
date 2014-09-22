@@ -2,35 +2,49 @@
 <head>
 	<script type="text/javascript" src="angular.js"></script>
 	<script type="text/javascript" src="app.js"></script>
+	<link rel="stylesheet" type="text/css" href="components/bootstrap/css/bootstrap.css">
 	<style type="text/css">
 		.higlight {
 			color : red;
 		}
 
 		.odd {
-			background-color: grey;
+			background-color: #EBEBE0;
 		}
 
 	</style>
 </head>
 
-<body >
-	<div ng-controller="greetingController">
-
-		<h1 ng-show="showMessage">{{message + ', ' +  companyName}}</h1>
-		<input type="text" ng-model="message" />
-		<input type="checkbox" ng-model="showMessage" />
-		Show Message
-	</div>
-	<br/>
-	<div  ng-controller="hotelsController">
-		<div ng-repeat="hotel in hotels" ng-class="{higlight : hotel.price > 20000}" ng-class-odd="'odd'">
-			<h1 >{{hotel.name}}, {{hotel.location}}</h1>
-			<img ng-src="http://i.imgur.com/{{hotel.img}}" width="100px" />
-			<br/>
-			<div >The price for the hotel is <span><input ng-disabled="hotel.price < 10000" type="number" ng-model="hotel.price"/></span></div>
+<body class="container" >
+	<div class="row" ng-controller="greetingController">
+		<div class="col-md-5">
+			<div class="row">
+				<div class="col-md-9">{{message}}</div>
+				<div class="col-md-3">{{companyName}}</div>
+			</div>
 		</div>
-
+		<div class="col-md-3">
+			<input type="text" ng-model="message" />
+		</div>
+		<div class="col-md-4">
+			<input type="checkbox" ng-model="showMessage" />
+			Show Message
+		</div>
+	</div>
+	<div ng-controller="hotelsController">
+		<div class="row" ng-repeat="hotel in hotels" ng-class="{higlight : hotel.price >
+			20000}" ng-class-odd="'odd'">
+			<div class="row">
+				<div class="col-md-5 col-sm-7">{{hotel.name}}</div>
+				<div class="col-md-4 col-sm-2">
+					<div>{{hotel.location}}</div>
+					<div>{{hotel.price}}</div>
+				</div>
+				<div class="col-md-3 col-sm-3">
+					<img ng-src="images/{{hotel.imgUrl}}" width="100px" />
+				</div>
+			</div>
+		</div>
 	</div>
 
 </body>
