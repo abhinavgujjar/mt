@@ -1,0 +1,21 @@
+<html ng-app>
+<head>
+	<script type="text/javascript" src="angular.js"></script>
+</head>
+
+<body ng-controller="mainController">
+	<h1 >{{message + ', ' +  companyName}}</h1>
+	<h2>{{7+5}}</h2>
+	<h2></h2>
+</body>
+	<script type="text/javascript">
+	function mainController($scope){
+
+		$scope.message = "Good Evening";
+
+		$scope.companyName = "MindTree";
+
+	}
+</script>
+
+</html>
