@@ -6,15 +6,34 @@
 <body ng-controller="mainController">
 	<h1 >{{message + ', ' +  companyName}}</h1>
 	<h2>{{7+5}}</h2>
-	<h2></h2>
+	<div ng-controller="subController" style="color:blue">
+		<h1>{{message}}</h1>
+	</div>
+	<div ng-controller="subController2" style="color:red">
+		<h1>{{message}}</h1>
+	</div>
+
+	<h1>{{message}}</h1>
 </body>
 	<script type="text/javascript">
 	function mainController($scope){
 
-		$scope.message = "Good Evening";
+		var greetings = ['Morning', 'Afternon', 'Evening'];
+
+		$scope.message = "Good " + greetings[0];
 
 		$scope.companyName = "MindTree";
 
+	}
+
+	function subController($scope)
+	{
+		$scope.message = "Hi There";
+	}
+
+	function subController2($scope)
+	{
+		
 	}
 </script>
 
