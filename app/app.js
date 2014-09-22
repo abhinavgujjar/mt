@@ -16,6 +16,17 @@ function greetingController($scope, $timeout) {
 
 function hotelsController($scope) {
 
+	$scope.AddHotel = function(h) {
+		$scope.hotels.push({
+			name: h.name,
+			location: h.location,
+			price: h.price
+		});
+	}
+
+	$scope.showHotel = function(hotel) {
+		alert(hotel.name);
+	}
 
 	$scope.hotels = [{
 		"id": "1",
