@@ -18,32 +18,28 @@
 <body class="container" >
 	<div class="row" ng-controller="greetingController">
 		<div class="col-md-5">
-			<div class="row">
-				<div class="col-md-9">{{message}}</div>
-				<div class="col-md-3">{{companyName}}</div>
+			<div class="row lead">
+				<div >{{message}}, {{companyName}}</div>
 			</div>
 		</div>
-		<div class="col-md-3">
-			<input type="text" ng-model="message" />
-		</div>
-		<div class="col-md-4">
-			<input type="checkbox" ng-model="showMessage" />
-			Show Message
-		</div>
+		
 	</div>
 	<div ng-controller="hotelsController">
-		<div class="row" ng-repeat="hotel in hotels" ng-class="{higlight : hotel.price >
-			20000}" ng-class-odd="'odd'">
-			<div class="row">
-				<div class="col-md-5 col-sm-7">{{hotel.name}}</div>
-				<div class="col-md-4 col-sm-2">
-					<div>{{hotel.location}}</div>
-					<div>{{hotel.price}}</div>
-				</div>
-				<div class="col-md-3 col-sm-3">
-					<img ng-src="images/{{hotel.imgUrl}}" width="100px" />
+		<div class="row well well-sm" ng-repeat="hotel in hotels" ng-class="{higlight : hotel.price >
+			20000}" >
+			<img class="col-md-2 col-sm-6 col-xs-12" ng-src="images/{{hotel.imgUrl}}" />
+			<div class="col-md-3 col-sm-3 col-xs-3">
+				<div><h2>{{hotel.name}}</h2></div>
+				<div ><h3 ><span class="label label-primary">{{hotel.price}}</span></h3></div>
+			</div>
+			<div class="col-md-7 col-sm-7 visible-md">
+				<div class="">{{hotel.description}}</div>
+				<div>
+					<div class="col-md-6 col-sm-6 col-xs-6">{{hotel.location}}</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">{{hotel.area}}</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 
