@@ -15,14 +15,7 @@ angular.module('holiday')
 			votingService.downVote(hotel);
 		}
 
-		$scope.AddHotel = function(h) {
-			hotelsProvider.addHotel({
-				name: h.name,
-				location: h.location,
-				price: h.price
-			});
-		}
-
+		
 		$scope.showHotel = function(hotel) {
 			alert(hotel.name);
 		}
