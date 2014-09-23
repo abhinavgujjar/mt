@@ -25,6 +25,8 @@ angular.module('holiday')
 			alert(hotel.name);
 		}
 
-		$scope.hotels = hotelsProvider.getHotels();
+		hotelsProvider.getHotels(function(hotels){
+			$scope.hotels = hotels;
+		});
 
 	});
