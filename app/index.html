@@ -1,7 +1,5 @@
 <html ng-app="holiday">
 <head>
-	<script type="text/javascript" src="angular.js"></script>
-	<script type="text/javascript" src="app.js"></script>
 	<link rel="stylesheet" type="text/css" href="components/bootstrap/css/bootstrap.css">
 	<style type="text/css">
 		.higlight {
@@ -68,7 +66,10 @@
 					<span ng-show="!showMore">{{hotel.description | limitTo : descLimit}}</span>
 					<span ng-show="showMore">{{hotel.description}}</span>
 
-					<span ng-show="hotel.description.length > descLimit"><a href="" ng-show="!showMore" ng-click="showMore = true">... more</a></span>
+					<span ng-show="hotel.description.length >
+						descLimit">
+						<a href="" ng-show="!showMore" ng-click="showMore = true">... more</a>
+					</span>
 				</div>
 				<div>
 					<div class="col-md-6 col-sm-6 col-xs-6">{{hotel.location | lowercase}}</div>
@@ -101,4 +102,10 @@
 		</div>
 
 </body>
+		<script type="text/javascript" src="angular.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+		<script type="text/javascript" src="controllers/greetingController.js"></script>
+		<script type="text/javascript" src="controllers/hotelsController.js"></script>
+		<script type="text/javascript" src="services/uiConfig.js"></script>
+		<script type="text/javascript" src="services/hotelsProvider.js"></script>
 	</html>
