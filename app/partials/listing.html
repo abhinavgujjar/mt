@@ -1,20 +1,5 @@
 <div >
-		<hr/>
-		<div class="row" ng-controller="createController">
-			<div class="col-md-8">
-				Name :
-				<input type="text" class="input-sm" ng-model="hotel.name" />
-				Price:
-				<input type="number"  class="input-sm" ng-model="hotel.price" />
-				Location :
-				<input type="text"  class="input-sm"  ng-model="hotel.location" />
-				<button class="btn btn-sm btn-primary" ng-click="AddHotel(hotel)">Add</button>
-
-			</div>
-			<div class="col-md-4">{{hotel | json}}</div>
-		</div>
-		<hr/>
-		<div ng-controller="hotelsController">
+		<div >
 			<div class="row">
 				<input type="text" ng-model="searchTerm" class="input-sm" placeholder="search..." />
 

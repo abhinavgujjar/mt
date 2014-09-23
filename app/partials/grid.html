@@ -1,0 +1,10 @@
+<div  class="" ng-repeat="hotel in hotels | filter : searchTerm | orderBy : orderHotels | limitTo : maxHotels" ng-class="{higlight : hotel.price >
+	20000}" >
+
+	<div class="col-md-5">
+		<img class="col-md-12" ng-src="images/{{hotel.imgUrl}}" />
+		<div><h2>{{hotel.name | uppercase}}</h2></div>
+	</div>
+
+
+</div>

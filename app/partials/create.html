@@ -1,0 +1,75 @@
+<style type="text/css">
+	input.ng-invalid.ng-dirty {
+		background-color: pink
+	}
+
+	input.ng-invalid.ng-pristine {
+		border-width: 1px;
+		border-color: red;
+	}
+
+</style>
+
+<div class="row" >
+	<div class="col-md-8">
+		<ng-form class="form-horizontal" role="form" name="hotelsForm">
+
+			<div ng-show="step == 1">
+				<ng-form name="firstForm">
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Name</label>
+						<div class="col-sm-9">
+							<input type="text" ng-model="hotel.name" maxlength="20" required class="form-control"  ></div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Price</label>
+						<div class="col-sm-9">
+							<input type="number" required ng-model="hotel.price" name="uPrice" min="1000" max="50000" class="form-control"  ></div>
+						<div class="col-md-1 text-success">
+							<h4>
+								<span ng-show="hotelsForm.uPrice.$valid" class="glyphicon glyphicon-ok"></span>
+							</h4>
+						</div>
+					</div>
+					<div class="form-group pull-right">
+						<div class="col-sm-offset-2 col-sm-10 ">
+							<button class="btn btn-default btn-primary" ng-disabled="firstForm.$invalid"  ng-click="incrementStep()">Next</button>
+						</div>
+					</div>
+				</ng-form>
+			</div>
+			<div ng-show="step == 2">
+				<ng-form>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Location</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" max-length="100"  ng-model="hotel.location" required ></div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Description</label>
+						<div class="col-sm-9">
+							<textarea ng-model="hotel.description" class="form-control" rows="6"></textarea>
+						</div>
+					</div>
+					<div class="form-group pull-right">
+						<div class="col-sm-offset-2 col-sm-10 ">
+							<button class="btn btn-default btn-primary"  ng-click="decrementStep()">Previous</button>
+						</div>
+					</div>
+				</ng-form>
+			</div>
+
+			<hr/>
+
+			<div class="form-group ">
+				<div class="col-sm-offset-2 col-sm-10 ">
+					<button class="btn btn-default btn-primary" ng-disabled="hotelsForm.$invalid" ng-click="AddHotel(hotel)">Save</button>
+				</div>
+			</div>
+		</ng-form>
+
+	</div>
+
+	<div class="col-md-4">{{hotel | json}}</div>
+</div>

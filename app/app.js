@@ -5,11 +5,27 @@ angular.module('holiday').config(
 	function($routeProvider) {
 		
 		$routeProvider.when('/listing', {
-			templateUrl : 'partials/listing.html'
+			templateUrl : 'partials/listing.html',
+			controller : 'hotelsController'
+		});
+
+		$routeProvider.when('/home', {
+			templateUrl : 'partials/home.html',
+			controller : 'hotelsController'
 		});
 
 		$routeProvider.when('/create', {
-			template : '<h1>create</h1><div>Newhotel</div>'
+			templateUrl : 'partials/create.html',
+			controller : 'createController'
+		});
+
+		$routeProvider.when('/grid', {
+			templateUrl : 'partials/grid.html',
+			controller : 'hotelsController'
+		});
+
+		$routeProvider.otherwise( {
+			redirectTo: '/home'
 		});
 		
 	}
