@@ -46,6 +46,18 @@ angular.module('holiday')
 			},
 			addHotel : function	(hotel){
 				hotels.push(hotel);
+			},
+			getHotel : function(hotelId){
+				var target;
+
+				angular.forEach(hotels, function(item){
+					if (item.id === hotelId){
+						target = item;
+					}
+				});
+
+				return target;
+
 			}
 		}
 

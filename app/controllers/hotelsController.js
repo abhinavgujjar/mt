@@ -1,8 +1,13 @@
 angular.module('holiday')
-	.controller('hotelsController', function($scope, uiConfig, orderByElements, hotelsProvider, votingService) {
+	.controller('hotelsController', function($scope, uiConfig, orderByElements, hotelsProvider, votingService, $location, $rootScope) {
 
 		$scope.upVote = function(hotel) {
 			votingService.upVote(hotel);
+		}
+
+		$scope.selectHotel = function(hotel){
+			hotelsProvider.hotel = hotel;
+			$location.url('/details')
 		}
 
 
