@@ -1,31 +1,22 @@
 angular.module('holiday')
-.controller('hotelsController', function($scope, uiConfig, orderByElements, hotelsProvider) {
+	.controller('hotelsController', function($scope, uiConfig, orderByElements, hotelsProvider, votingService) {
 
-		$scope.upVote = function(ht) {
-
-			if (!ht.rating) {
-				ht.rating = 0;
-			}
-
-			ht.rating++;
+		$scope.upVote = function(hotel) {
+			votingService.upVote(hotel);
 		}
+
 
 		$scope.descLimit = uiConfig.descLimit;
 		$scope.maxHotels = uiConfig.maxHotels;
 
 		$scope.orderByElements = orderByElements;
 
-		$scope.downVote = function(ht) {
-
-			if (!ht.rating) {
-				ht.rating = 0;
-			}
-
-			ht.rating--;
+		$scope.downVote = function(hotel) {
+			votingService.downVote(hotel);
 		}
 
 		$scope.AddHotel = function(h) {
-			$scope.hotels.push({
+			hotelsProvider.addHotel({
 				name: h.name,
 				location: h.location,
 				price: h.price
