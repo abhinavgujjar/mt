@@ -6,10 +6,11 @@ angular.module('holiday')
 		if (!hotel) {
 			var hotelId = $routeParams.hotelId;
 
-			hotel = hotelsProvider.getHotel(hotelId);
+			hotelsProvider.getHotel(hotelId).then(function(target){
+				$scope.hotel = target;
+			});
 
 		}
-
 
 		$scope.hotel = hotel;
 
