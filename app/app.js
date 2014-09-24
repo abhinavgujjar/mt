@@ -44,7 +44,7 @@ angular.module('holiday')
 
 
 angular.module('holiday').controller('mainController', function($scope){
-	$scope.hideNavBar = true;
+	$scope.hideNavBar = false;
 
 	$scope.$on('navbar', function(event, args){
 		if (args){

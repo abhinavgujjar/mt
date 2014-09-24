@@ -8,7 +8,7 @@ angular.module('holiday').directive('preview', function(){
         templateUrl : 'partials/preview.html',
         scope : {
            entry : '=desc',
-           rows : '@rows'
+           rows : '@'
         }
     }
 });

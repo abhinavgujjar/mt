@@ -8,7 +8,8 @@ angular.module('holiday').directive('amenities', function(){
         templateUrl : 'partials/amenities.html',
         scope : {
         	list : '=list',
-        	disp : '@disp'
+        	disp : '@disp',
+        	readOnly : '@'
         },
         controller : function($scope){
         	$scope.removeAmenity = function(amenity) {

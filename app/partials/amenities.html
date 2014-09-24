@@ -10,7 +10,7 @@
 				<div class="col-md-3 text-success">
 					<span class="glyphicon glyphicon-ok"></span>
 				</div>
-				<div class="col-md-4 ">
+				<div class="col-md-4 " ng-hide="readOnly">
 					<button ng-show="editMode" class="btn btn-success btn-sm" ng-click="editMode = false">
 						<span class="glyphicon glyphicon-floppy-disk"></span>
 					</button>
@@ -24,7 +24,7 @@
 			</div>
 
 		</li>
-		<li class="list-group-item list-group-item-info">
+		<li ng-hide="readOnly" class="list-group-item list-group-item-info">
 			<div class="row">
 				<div class="col-md-8">
 					<input type="text" ng-model="newAmenity"/>

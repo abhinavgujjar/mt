@@ -58,12 +58,13 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Description</label>
 						<div class="col-sm-9">
-							<!-- <textarea ng-model="hotel.description" class="form-control" rows="6"></textarea> -->
-							<preview desc="hotel.description" rows="20"></preview>
+							<!-- <textarea ng-model="hotel.description" class="form-control" rows="6"></textarea>
+						-->
+						<preview desc="hotel.description" rows="10"></preview>
 
-						</div>
 					</div>
-					
+				</div>
+
 			</ng-form>
 		</div>
 
@@ -78,12 +79,13 @@
 
 </div>
 <div class="col-md-4">
-	<amenities list="hotel.ameneties" ></amenities>
+	<amenities list="hotel.ameneties" read-only="false" ></amenities>
 </div>
 <div class="col-md-2">
-	<div>{{hotel | json}}</div>
-	<hr/>
-	<div>{{selectedStateId}}</div>
+	<code title="New Hotel"><div>{{hotel | json}}</div></code>
+
+	
 
 </div>
+
 </div>
