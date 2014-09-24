@@ -11,10 +11,10 @@
 </style>
 
 <div class="row" >
-	<div class="col-md-8">
+	<div class="col-md-6">
 		<ng-form class="form-horizontal" role="form" name="hotelsForm">
 
-			<div ng-show="step == 1">
+			<div >
 				<ng-form name="firstForm">
 
 					<div class="form-group">
@@ -32,44 +32,103 @@
 							</h4>
 						</div>
 					</div>
-					<div class="form-group pull-right">
-						<div class="col-sm-offset-2 col-sm-10 ">
-							<button class="btn btn-default btn-primary" ng-disabled="firstForm.$invalid"  ng-click="incrementStep()">Next</button>
-						</div>
+					<!-- <div class="form-group pull-right">
+					<div class="col-sm-offset-2 col-sm-10 ">
+						<button class="btn btn-default btn-primary" ng-disabled="firstForm.$invalid"  ng-click="incrementStep()">Next</button>
 					</div>
-				</ng-form>
-			</div>
-			<div ng-show="step == 2">
-				<ng-form>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Location</label>
-						<div class="col-sm-9">
-							<input type="text" class="form-control" max-length="100"  ng-model="hotel.location" required ></div>
+				</div>
+				-->
+			</ng-form>
+		</div>
+		<div >
+			<ng-form>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">State</label>
+					<div class="col-sm-9">
+						<select ng-model="selectedStateId" class="form-control">
+							<option ng-selected="!selectedStateId">Select State...</option>
+							<option ng-repeat="item in states" ng-selected="item.id === selectedStateId" value="{{item.id}}" >{{item.name}}</option>
+						</select>
 					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Description</label>
-						<div class="col-sm-9">
-							<textarea ng-model="hotel.description" class="form-control" rows="6"></textarea>
-						</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">City</label>
+					<div class="col-sm-9">
+						<select ng-model="selectedCity" class="form-control">
+							<option ng-selected="!selectedCity">Select City...</option>
+							<option ng-repeat="item in availableCities" value="{{item}}" >{{item}}</option>
+						</select>
 					</div>
-					<div class="form-group pull-right">
-						<div class="col-sm-offset-2 col-sm-10 ">
-							<button class="btn btn-default btn-primary"  ng-click="decrementStep()">Previous</button>
-						</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Description</label>
+					<div class="col-sm-9">
+						<textarea ng-model="hotel.description" class="form-control" rows="6"></textarea>
 					</div>
-				</ng-form>
-			</div>
-
-			<hr/>
-
-			<div class="form-group ">
+				</div>
+				<!-- <div class="form-group pull-right">
 				<div class="col-sm-offset-2 col-sm-10 ">
-					<button class="btn btn-default btn-primary" ng-disabled="hotelsForm.$invalid" ng-click="AddHotel(hotel)">Save</button>
+					<button class="btn btn-default btn-primary"  ng-click="decrementStep()">Previous</button>
 				</div>
 			</div>
+			-->
 		</ng-form>
-
 	</div>
 
-	<div class="col-md-4">{{hotel | json}}</div>
+	<hr/>
+
+	<div class="form-group ">
+		<div class="col-sm-offset-2 col-sm-10 ">
+			<button class="btn btn-default btn-primary" ng-disabled="hotelsForm.$invalid" ng-click="AddHotel(hotel)">Save</button>
+		</div>
+	</div>
+</ng-form>
+
+</div>
+<div class="col-md-4">
+<ul class="list-group">
+	<li class="list-group-item" ng-repeat="item in hotel.ameneties">
+		<div class="row">
+			<div class="col-md-5">
+				<span ng-hide="editMode">{{item.name}}</span>
+				<span ng-show="editMode">
+					<input ng-model="item.name" class="form-control"></span>
+			</div>
+			<div class="col-md-3 text-success">
+				<span class="glyphicon glyphicon-ok"></span>
+			</div>
+			<div class="col-md-4 ">
+				<button ng-show="editMode" class="btn btn-success btn-sm" ng-click="editMode = false">
+					<span class="glyphicon glyphicon-floppy-disk"></span>
+				</button>
+				<button ng-hide="editMode" class="btn btn-warning btn-sm" ng-click="editMode = true">
+					<span class="glyphicon glyphicon-edit"></span>
+				</button>
+				<button ng-hide="editMode" class="btn btn-danger btn-sm" ng-click="removeAmenity(item)">
+					<span class="glyphicon glyphicon-remove" ></span>
+				</button>
+			</div>
+		</div>
+
+	</li>
+	<li class="list-group-item list-group-item-info">
+		<div class="row">
+			<div class="col-md-8">
+				<input type="text" ng-model="newAmenity"/>
+			</div>
+			<div class="col-md-4">
+				<button ng-click="addAmenity(newAmenity)" class="btn btn-success btn-sm">Add</button>
+			</div>
+		</div>
+
+	</li>
+</ul>
+
+</div>
+<div class="col-md-2">
+<div>{{hotel | json}}</div>
+<hr/>
+<div>{{selectedStateId}}</div>
+
+</div>
 </div>
