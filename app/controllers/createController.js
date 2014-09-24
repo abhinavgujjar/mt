@@ -80,7 +80,9 @@ angular.module('holiday')
 				hotelsProvider.addHotel({
 					name: h.name,
 					location: h.location,
-					price: h.price
+					price: h.price,
+					description : h.description,
+					ameneties : h.ameneties
 				});
 
 				$location.url('/listing');
