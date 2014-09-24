@@ -78,44 +78,7 @@
 
 </div>
 <div class="col-md-4">
-	<ul class="list-group">
-		<li class="list-group-item" ng-repeat="item in hotel.ameneties">
-			<div class="row">
-				<div class="col-md-5">
-					<span ng-hide="editMode">{{item.name}}</span>
-					<span ng-show="editMode">
-						<input ng-model="item.name" class="form-control"></span>
-				</div>
-				<div class="col-md-3 text-success">
-					<span class="glyphicon glyphicon-ok"></span>
-				</div>
-				<div class="col-md-4 ">
-					<button ng-show="editMode" class="btn btn-success btn-sm" ng-click="editMode = false">
-						<span class="glyphicon glyphicon-floppy-disk"></span>
-					</button>
-					<button ng-hide="editMode" class="btn btn-warning btn-sm" ng-click="editMode = true">
-						<span class="glyphicon glyphicon-edit"></span>
-					</button>
-					<button ng-hide="editMode" class="btn btn-danger btn-sm" ng-click="removeAmenity(item)">
-						<span class="glyphicon glyphicon-remove" ></span>
-					</button>
-				</div>
-			</div>
-
-		</li>
-		<li class="list-group-item list-group-item-info">
-			<div class="row">
-				<div class="col-md-8">
-					<input type="text" ng-model="newAmenity"/>
-				</div>
-				<div class="col-md-4">
-					<button ng-click="addAmenity(newAmenity)" class="btn btn-success btn-sm">Add</button>
-				</div>
-			</div>
-
-		</li>
-	</ul>
-
+	<amenities list="hotel.ameneties" ></amenities>
 </div>
 <div class="col-md-2">
 	<div>{{hotel | json}}</div>

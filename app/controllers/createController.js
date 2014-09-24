@@ -46,23 +46,7 @@ angular.module('holiday')
 		});
 
 
-		$scope.removeAmenity = function(amenity) {
-
-			var ameneties = $scope.hotel.ameneties;
-			var index = ameneties.indexOf(amenity);
-			ameneties.splice(index, 1);
-
-		}
-
-		$scope.addAmenity = function(newAmenity) {
-			$scope.hotel.ameneties.push({
-				name: newAmenity,
-				available: true
-			});
-
-			$scope.newAmenity = '';
-		}
-
+		
 		$scope.step = 1;
 
 		$scope.incrementStep = function() {
