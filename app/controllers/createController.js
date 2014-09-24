@@ -73,6 +73,9 @@ angular.module('holiday')
 			$scope.step--;
 		}
 
+		$scope.availablePics = [
+		'kVIGWsz.jpg', 'OqJMuy5.jpg', 'qA4PCDl.jpg'];
+
 		$scope.AddHotel = function(h) {
 
 			if (this.hotelsForm.$valid) {

@@ -13,8 +13,8 @@
 	</style>
 </head>
 
-<body >
-	<nav class="navbar navbar-default" role="navigation">
+<body ng-controller="mainController">
+	<nav ng-hide="hideNavBar" class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -64,11 +64,13 @@
 </body>
 	<script type="text/javascript" src="angular.js"></script>
 	<script type="text/javascript" src="components/angular-route/angular-route.js"></script>
+	<script type="text/javascript" src="components/angular-sanitize/angular-sanitize.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 	<script type="text/javascript" src="controllers/greetingController.js"></script>
 	<script type="text/javascript" src="controllers/hotelsController.js"></script>
 	<script type="text/javascript" src="controllers/createController.js"></script>
 	<script type="text/javascript" src="controllers/detailsController.js"></script>
+	<script type="text/javascript" src="directives/preview.js"></script>
 	<script type="text/javascript" src="services/uiConfig.js"></script>
 	<script type="text/javascript" src="services/hotelsProvider.js"></script>
 	<script type="text/javascript" src="services/votingService.js"></script>

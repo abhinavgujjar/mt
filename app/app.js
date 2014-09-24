@@ -1,4 +1,4 @@
-angular.module('holiday', ['ngRoute']);
+angular.module('holiday', ['ngRoute', 'ngSanitize']);
 
 
 angular.module('holiday').config(
@@ -10,8 +10,7 @@ angular.module('holiday').config(
 		});
 
 		$routeProvider.when('/home', {
-			templateUrl : 'partials/home.html',
-			controller : 'hotelsController'
+			templateUrl : 'partials/home.html'
 		});
 
 		$routeProvider.when('/create', {
@@ -42,6 +41,21 @@ angular.module('holiday')
 		'name',
 		'rating'
 	])
+
+
+angular.module('holiday').controller('mainController', function($scope){
+	$scope.hideNavBar = true;
+
+	$scope.$on('navbar', function(event, args){
+		if (args){
+			$scope.hideNavBar = false;			
+		}
+		else
+		{
+			$scope.hideNavBar = true;
+		}
+	})
+})
 
 
 	

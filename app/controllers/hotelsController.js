@@ -1,6 +1,8 @@
 angular.module('holiday')
 	.controller('hotelsController', function($scope, uiConfig, orderByElements, hotelsProvider, votingService, $location, $rootScope) {
 
+		$scope.$emit('navbar', true);
+
 		$scope.upVote = function(hotel) {
 			votingService.upVote(hotel);
 		}

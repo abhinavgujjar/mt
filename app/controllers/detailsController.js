@@ -1,6 +1,8 @@
 angular.module('holiday')
 	.controller('detailsController', function($scope, hotelsProvider, $routeParams) {
 
+		$scope.$emit('navbar', true);
+
 		var hotel = hotelsProvider.hotel;
 
 		if (!hotel) {
