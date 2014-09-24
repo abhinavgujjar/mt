@@ -1,0 +1,56 @@
+<div>
+	<img class="col-md-2 col-sm-6 col-xs-12" ng-src="images/{{hotel.imgUrl}}" />
+		<div class="col-md-3 col-sm-3 col-xs-3">
+			<div>
+				<a href="#/details?hotelId={{hotel.objectId}}" >
+					<h2>{{hotel.name | uppercase}}</h2>
+				</a>
+			</div>
+			<div >
+				<h3 >
+					<span class="label label-primary">{{hotel.price | currency : 'INR '}}</span>
+				</h3>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<amenities list="hotel.ameneties" read-only="true" ></amenities>
+		</div>
+		<div class="col-md-3 col-sm-7 visible-md visible-lg">
+			<div class="">
+				<span ng-show="!showMore">{{hotel.description | limitTo : descLimit}}</span>
+				<span ng-show="showMore">{{hotel.description}}</span>
+
+				<span ng-show="hotel.description.length >
+					descLimit">
+					<a href="" ng-show="!showMore" ng-click="showMore = true">... more</a>
+				</span>
+			</div>
+			<div>
+				<div class="col-md-6 col-sm-6 col-xs-6">{{hotel.location | lowercase}}</div>
+				<div class="col-md-6 col-sm-6 col-xs-6">{{hotel.area | number : 2}}</div>
+			</div>
+
+		</div>
+		<div class="col-md-1">
+			<div>
+				<button class="btn btn-default btn-sm" ng-click="upVote(hotel)">
+					<span class="glyphicon glyphicon-chevron-up"></span>
+				</button>
+			</div>
+			<div>
+				<h3>
+					<span class="label" ng-class="{'label-success': hotel.rating >
+						0, 'label-danger': hotel.rating
+						< 0, 'label-primary': !hotel.rating}">{{hotel.rating ? hotel.rating : '0'}}</span>
+					</h3>
+				</div>
+				<div>
+					<button class="btn btn-default btn-sm"  ng-click="downVote(hotel)">
+						<span class="glyphicon glyphicon-chevron-down"></span>
+					</button>
+				</div>
+
+			</div>
+
+		</div>
+</div>
